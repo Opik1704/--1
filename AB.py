@@ -98,7 +98,7 @@ def sendMsg1(message):
 def sendMsg(message):
     global NUM
     NUM += 1
-
+    
     chat_id = message.chat.id
     text = message.text
     connect = sqlite3.connect('dialog.sql')
@@ -116,11 +116,16 @@ def sendMsg(message):
     cursor.execute('SELECT * FROM dialog')
     users = cursor.fetchall()
     print(users)
-    if chated[1] == chat_id:
-        bot.send_message(chated[0], text)
+    r = random.randint(1,4)
+    r1 = random.randint(1,4)
+    r2 = random.randint(1,4)
+    r3 = random.randint(1,4)
+    
+    if chated[r] == chat_id:
+        bot.send_message(chated[r1], text)
         print()
-    elif chated[0] == chat_id:
-        bot.send_message(chated[1], text)
+    elif chated[r2] == chat_id:
+        bot.send_message(chated[r3], text)
 
 
 
